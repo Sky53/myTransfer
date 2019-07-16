@@ -1,0 +1,14 @@
+.class
+target
+.metadata
+RemoteSystemsTempFiles
+.classpath
+.project
+.settings
+.idea
+*.bpmn2d
+*.iml
+.gradle
+build
+logs
+classes
