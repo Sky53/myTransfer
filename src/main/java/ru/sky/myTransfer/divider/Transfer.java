@@ -1,4 +1,4 @@
-package ru.sky.myTransfer;
+package ru.sky.myTransfer.divider;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -22,8 +22,14 @@ public class Transfer {
             while ((bytesCount = bufferedInputStream.read(buf)) > 0) {
                 String fileChangName = String.format("%s.%03d", fileName, changCounter++);
 
+                File uploadDir = new File(file.getParent() + "\\upload\\");
 
-                File newFile = new File(file.getParent() , fileChangName);
+                if (!uploadDir.exists()){
+                    uploadDir.mkdir();
+                }
+
+                File newFile = new File(uploadDir + "\\"  , fileChangName);
+
 
 
                 try (FileOutputStream fileOutputStream = new FileOutputStream(newFile)) {
@@ -34,7 +40,8 @@ public class Transfer {
     }
 
     public static void main(String[] args) throws IOException {
-        dividerFile(new File("/home/sky/Музыка/test.mkv"), 1024 * 1024);
+        dividerFile(new File("C:\\1\\test.mkv"), 1024 * 1024);
+//        dividerFile(new File("C:\\1\\test.exe"), 1024 * 1024);
     }
 
 
