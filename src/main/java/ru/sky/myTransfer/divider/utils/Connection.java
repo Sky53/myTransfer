@@ -1,4 +1,4 @@
-package ru.sky.myTransfer.divider;
+package ru.sky.myTransfer.divider.utils;
 
 import java.io.Closeable;
 import java.io.IOException;

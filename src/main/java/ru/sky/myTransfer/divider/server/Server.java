@@ -1,6 +1,7 @@
 package ru.sky.myTransfer.divider.server;
 
 import ru.sky.myTransfer.divider.*;
+import ru.sky.myTransfer.divider.utils.*;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -81,8 +82,18 @@ public class Server {
                     List<File> files = Transfer.fileToList(new File(parent));
                     Collections.sort(files);
                     String newFileName = new File(parent).getParent() +  "/New__" + file.getName();
-                    Transfer.collectorFile(files,new File(newFileName));
-//                    String s = userName + ": " + message.getData();
+                    String tranfertO = file.getParent() + "/RESALT/" + file.getName();
+                    File fileOk = new File(new File(tranfertO).getParent());
+
+                    if (!fileOk.exists()){
+                        fileOk.mkdir();
+                    }
+
+                    Transfer.collectorFile(files,new File(tranfertO));
+                    File fileToDelite = new File(new File(parent).getParent());
+                    Transfer.deleteDirectory(fileToDelite);
+
+//                      String s = userName + ": " + message.getData();
 
                     Message messageUser = new Message(MessageType.TEXT, clienMes + " complete");
                     sendBroadcastMessage(messageUser);

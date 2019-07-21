@@ -1,4 +1,4 @@
-package ru.sky.myTransfer.divider;
+package ru.sky.myTransfer.divider.utils;
 
 public enum MessageType {
     NAME_REQUEST,

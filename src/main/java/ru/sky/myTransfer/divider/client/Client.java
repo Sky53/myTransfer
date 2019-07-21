@@ -1,6 +1,6 @@
 package ru.sky.myTransfer.divider.client;
 
-import ru.sky.myTransfer.divider.*;
+import ru.sky.myTransfer.divider.utils.*;
 
 import java.io.*;
 import java.net.Socket;

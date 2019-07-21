@@ -1,4 +1,4 @@
-package ru.sky.myTransfer.divider;
+package ru.sky.myTransfer.divider.utils;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -64,6 +64,16 @@ public class Transfer {
         return Files.walk(Paths.get(path.getParent())).filter(Files::isRegularFile).map(Path::toFile).collect(Collectors.toList());
     }
 
+    public static void deleteDirectory(File dir) {
+        if (dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i=0; i<children.length; i++) {
+                File f = new File(dir, children[i]);
+                deleteDirectory(f);
+            }
+            dir.delete();
+        } else dir.delete();
+    }
 
 
 }
