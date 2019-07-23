@@ -1,9 +1,6 @@
 package ru.sky.myTransfer.divider.utils;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.net.SocketAddress;
 
@@ -25,6 +22,12 @@ public class Connection implements Closeable {
         }
     }
 
+    public void sendFile(byte[] file) throws IOException {
+        synchronized (out){
+            this.out.writeObject(file);
+        }
+    }
+
     public Message receive() throws IOException, ClassNotFoundException {
         synchronized (in){
             return (Message) this.in.readObject();
@@ -34,6 +37,7 @@ public class Connection implements Closeable {
     public SocketAddress getRemoteSocketAddress(){
         return this.socket.getRemoteSocketAddress();
     }
+
     @Override
     public void close() throws IOException {
         this.in.close();

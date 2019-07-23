@@ -3,6 +3,7 @@ package ru.sky.myTransfer.divider.utils;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class ConsoleHelper {
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -29,6 +30,7 @@ public class ConsoleHelper {
         int result;
         while (true) {
             try {
+
                 result = Integer.parseInt(readString());
                 break;
             } catch (NumberFormatException e) {

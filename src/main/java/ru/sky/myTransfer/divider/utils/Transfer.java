@@ -1,5 +1,7 @@
 package ru.sky.myTransfer.divider.utils;
 
+import ru.sky.myTransfer.divider.client.Client;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,6 +10,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Transfer {
+
+    private Client client;
 
     public static void dividerFile(File file, int filreChangSize) throws IOException {
         int changCounter = 0;

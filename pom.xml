@@ -19,7 +19,7 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>build-a</id>
+                        <id>build-Client</id>
                         <configuration>
                             <archive>
                                 <manifest>
@@ -33,7 +33,7 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>build-b</id>
+                        <id>build-Server</id>
                         <configuration>
                             <archive>
                                 <manifest>
